@@ -18,7 +18,7 @@ public class FilmService {
     }
 
     public Film addFilm(Film film) {
-        film.setId(IdGenerator.getId());
+        film.setId(IdGenerator.getFilmId());
         films.put(film.getId(), film);
         return film;
     }

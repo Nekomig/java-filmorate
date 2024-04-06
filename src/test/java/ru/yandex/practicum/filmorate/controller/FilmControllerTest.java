@@ -49,7 +49,7 @@ class FilmControllerTest {
     @Test
     void validationCheck() throws Exception {
         Film film = new Film();
-        film.setId(IdGenerator.getId());
+        film.setId(IdGenerator.getFilmId());
         film.setName("name");
         film.setDescription("description");
         film.setReleaseDate(LocalDate.of(2000, 1, 1));

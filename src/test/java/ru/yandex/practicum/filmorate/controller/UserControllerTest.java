@@ -50,7 +50,7 @@ class UserControllerTest {
     @Test
     void validationCheck() throws Exception {
         User user = new User();
-        user.setId(IdGenerator.getId());
+        user.setId(IdGenerator.getUserId());
         user.setEmail("email@ya.ru");
         user.setLogin("login");
         user.setName("name");

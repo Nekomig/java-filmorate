@@ -17,7 +17,7 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        user.setId(IdGenerator.getId());
+        user.setId(IdGenerator.getUserId());
         try {
             if (user.getName().isEmpty()) {
                 user.setName(user.getLogin());
