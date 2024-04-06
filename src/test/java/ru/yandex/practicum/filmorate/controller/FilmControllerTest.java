@@ -72,10 +72,7 @@ class FilmControllerTest {
         film.setName("name");
 
 
-        film.setDescription("очень длинное описание: максимальная длина описания — 200 символов;максимальная длина" +
-                " описания — 200 символов;максимальная длина описания — 200 символов;максимальная длина описания — " +
-                "200 символов;максимальная длина описания — 200 символов;максимальная длина описания — 200 символов;" +
-                "максимальная длина описания — 200 символов;максимальная длина описания — 200 символов;");
+        film.setDescription("1".repeat(201));
         filmJson = objectMapper.writeValueAsString(film);
         mockMvc.perform(post("/films").contentType(MediaType.APPLICATION_JSON).content(filmJson))
                 .andExpect(status().isBadRequest()); //описание 200+ символов
