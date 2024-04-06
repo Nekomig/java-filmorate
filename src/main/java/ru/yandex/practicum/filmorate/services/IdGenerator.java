@@ -7,7 +7,9 @@ public class IdGenerator {
     public static int getFilmId() {
         return filmId++;
     }
+
     public static int getUserId() {
-        return filmId++;
+        return userId++;
     }
 }
+
