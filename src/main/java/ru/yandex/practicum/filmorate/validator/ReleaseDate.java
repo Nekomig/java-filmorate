@@ -14,10 +14,10 @@ import java.lang.annotation.Target;
 
 public @interface ReleaseDate {
 
-        String message() default "{ReleaseDate}";
+    String message() default "{ReleaseDate}";
 
-        Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-        Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 
 }

@@ -19,13 +19,13 @@ public class FilmService {
 
     public Film addFilm(Film film) {
         film.setId(IdGenerator.getId());
-        films.put(film.getId(),film);
+        films.put(film.getId(), film);
         return film;
     }
 
-    public Film updateFilm(Film film){
-        if(films.containsKey(film.getId())){
-            films.replace(film.getId(),film);
+    public Film updateFilm(Film film) {
+        if (films.containsKey(film.getId())) {
+            films.replace(film.getId(), film);
         } else {
             throw new NotFoundException("Запрашиваемый к обновлению фильм не найден.");
         }

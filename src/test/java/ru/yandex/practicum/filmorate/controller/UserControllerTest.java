@@ -100,7 +100,7 @@ class UserControllerTest {
         mockMvc.perform(post("/users").contentType(MediaType.APPLICATION_JSON).content(userJson))
                 .andExpect(status().isBadRequest()); //дата рождения null
 
-        user.setBirthday(LocalDate.of(2049,1,1));
+        user.setBirthday(LocalDate.of(2049, 1, 1));
         userJson = objectMapper.writeValueAsString(user);
         mockMvc.perform(post("/users").contentType(MediaType.APPLICATION_JSON).content(userJson))
                 .andExpect(status().isBadRequest()); //дата рождения в будущем

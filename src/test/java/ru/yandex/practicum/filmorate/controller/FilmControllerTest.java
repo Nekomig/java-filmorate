@@ -20,13 +20,12 @@ import ru.yandex.practicum.filmorate.services.IdGenerator;
 
 import java.time.LocalDate;
 
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @ExtendWith(MockitoExtension.class)
-    class FilmControllerTest {
+class FilmControllerTest {
     @Mock
     private FilmService filmService;
 
@@ -53,7 +52,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         film.setId(IdGenerator.getId());
         film.setName("name");
         film.setDescription("description");
-        film.setReleaseDate(LocalDate.of(2000,1,1));
+        film.setReleaseDate(LocalDate.of(2000, 1, 1));
         film.setDuration(100);
 
         String filmJson = objectMapper.writeValueAsString(film);
@@ -92,7 +91,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
                 .andExpect(status().isBadRequest()); //null описание
         film.setDescription("description");
 
-        film.setReleaseDate(LocalDate.of(999,1,1));
+        film.setReleaseDate(LocalDate.of(999, 1, 1));
         filmJson = objectMapper.writeValueAsString(film);
         mockMvc.perform(post("/films").contentType(MediaType.APPLICATION_JSON).content(filmJson))
                 .andExpect(status().isBadRequest()); //дата релиза раньше 28.12.1895
@@ -101,7 +100,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         filmJson = objectMapper.writeValueAsString(film);
         mockMvc.perform(post("/films").contentType(MediaType.APPLICATION_JSON).content(filmJson))
                 .andExpect(status().isBadRequest()); //дата релиза отсутствует
-        film.setReleaseDate(LocalDate.of(2000,1,1));
+        film.setReleaseDate(LocalDate.of(2000, 1, 1));
 
         film.setDuration(0);
         filmJson = objectMapper.writeValueAsString(film);

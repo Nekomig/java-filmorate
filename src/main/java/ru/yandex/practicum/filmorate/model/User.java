@@ -1,7 +1,6 @@
 package ru.yandex.practicum.filmorate.model;
 
 
-
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -12,7 +11,7 @@ public class User {
 
     private Integer id;
     @NotEmpty
-    @Email(message =  "Некорректный формат email.")
+    @Email(message = "Некорректный формат email.")
     private String email;
     @NotBlank(message = "Логин должен содержать символы.")
     @Pattern(regexp = "\\S*", message = "Логин не должен содержать пробелы")
